@@ -4,7 +4,7 @@ export default function SearchBox({text, onChangeHandler}) {
     return (
       <div className="search-box">
         <input
-          onChange={onChangeHandler}
+          onChange={(el) => onChangeHandler(el.target.value)}
           value={text}
           placeholder="Search for a Pin-Item"
         />

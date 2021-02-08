@@ -1,31 +1,29 @@
 import React from 'react'
-import chairSmall from "../assets/chair-small.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin,faShareAlt,faEuroSign,faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 
-
-export default function PinChair({handleClick,toggleChair}) {
+export default function Pin({handleClick,name,price,img,visible}) {
     return (
-        <div className="box-chair">
+<div className={`box-${name}`}>
           <FontAwesomeIcon
-            className="chair-icon"
-            name="chair"
-            onClick={() => handleClick("chair")}
+            onClick={() => handleClick(name)}
+            className={`${name}-icon`}
+            name={name}
             size="3x"
             icon={faMapPin}
             color="orange"
           />
-          {toggleChair && (
-            <div className="active-chair shadow">
+          {visible && (
+            <div className={`active-${name} shadow`}>
               <img
-                className="image-small-chair"
-                src={chairSmall}
+                className={`image-small-${name}`}
+                src={img}
                 alt="living-room-small"
               />
-              <div className="details-chair">
-                <h2>Chair</h2>
+              <div className={`details-${name}`}>
+                <h2>{name}</h2>
                 <p>
-                  120 <FontAwesomeIcon icon={faEuroSign} />
+                  {price} <FontAwesomeIcon icon={faEuroSign} />
                 </p>
                 <div className="small-icons">
                   <FontAwesomeIcon
